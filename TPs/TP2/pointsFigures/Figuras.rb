@@ -32,5 +32,9 @@ class Figuras
 	def hash
 		not_overriden
 	end
+	
+	def <=>(other)
+		self.area <=> other.area #orden ascendente
+	end
 
 end
