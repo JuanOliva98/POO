@@ -1,4 +1,7 @@
 class Rectangle < Figuras
+	attr_reader :base
+	attr_reader :height
+	
 	def initialize(top_left_p, base, height )
 		@top_left_p = top_left_p
 		@base = base
@@ -19,5 +22,27 @@ class Rectangle < Figuras
 		false
 	end
 
+	def ==(other)
+		return nil unless other.kind_of? Rectangle
+
+		return false unless self.base == other.base && self.height == other.height
+		true
+	end
+
+	def to_s
+		"Rectangle at #@top_left_p , base: #@base and height #@height ."
+	end
+
+	def inspect
+		to_s
+	end
+
+	def eql?(other)
+		self.==(other)
+	end
+
+	def hash
+		[ @base , @height ].hash
+	end
 
 end

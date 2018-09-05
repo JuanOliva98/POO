@@ -17,4 +17,20 @@ class Figuras
 		self.point_belongs_per(p)
 	end
 
+	def ==(other)
+		not_overriden
+	end
+
+	def !=(other)
+		not self.==(other)
+	end
+	
+	def eql?(other)
+		not_overriden
+	end
+
+	def hash
+		not_overriden
+	end
+
 end

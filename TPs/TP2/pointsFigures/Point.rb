@@ -26,14 +26,26 @@ class Point
 	def ==(other)
 		return nil unless other.instance_of? Point
 
-		return false unless self.x==other.x && self.y==other.y
+		return false unless self.x == other.x && self.y == other.y
 		true
 	end
 
 	def !=(other)
-		return false unless self.==(other)
-		true
+		not self.==(other)
 	end
 
+	def eql?(other)
+		# eql? is aliased with the overriden == method for usage with set class
+		self.==(other)
+	end
+
+	def hash
+		#Se invoca al metodo hash de un array con los elementos relevantes de la clase. ( o los que usa #eql? )
+		[@x , @y].hash
+	end
+
+	def inspect
+		to_s
+	end
 
 end

@@ -1,11 +1,12 @@
 class Circle < Ellipse
 	
 	def initialize(center , radius )
-		super( center, Point.new(center, center + radius), Point.new(center + radius, center) )
+		super( center, Point.new(center.x , center.y + radius), Point.new(center.x + radius, center.y) )
+		@radius = radius
 	end
 
 	def to_s
-		"Círculo con centro en #@center y radio #{@radius}"
+		"Circulo con centro en #@center y radio #@radius"
 	end
 
 end
